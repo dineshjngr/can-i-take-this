@@ -1,69 +1,80 @@
-import Image from "next/image";
+import { Plane } from "lucide-react";
 
-export default function Home() {
+import { PackingCheckCard } from "@/components/checker/packing-check-card";
+import { TripCheckerForm } from "@/components/checker/trip-checker-form";
+import { OfficialSourcesCard } from "@/components/home/official-sources-card";
+import { SavedTripPreviewSection } from "@/components/home/saved-trip-preview-section";
+import { TripInsightsCard } from "@/components/home/trip-insights-card";
+import { WarningSummaryCard } from "@/components/home/warning-summary-card";
+import { WhatToReviewSection } from "@/components/home/what-to-review-section";
+import { WhyTravelersSection } from "@/components/home/why-travelers-section";
+import { Container } from "@/components/layout/container";
+
+export default function HomePage() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <main className="flex flex-1 flex-col">
+      <section className="relative isolate flex flex-1 items-center overflow-hidden py-14 sm:py-20 lg:py-24">
+        <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
+          <div className="absolute top-0 left-1/2 h-96 w-[56rem] -translate-x-1/2 rounded-full bg-primary/8 blur-3xl" />
+          <div className="absolute top-24 -left-32 size-80 rounded-full bg-sky-200/35 blur-3xl" />
+          <div className="absolute -right-28 bottom-0 size-96 rounded-full bg-blue-100/45 blur-3xl" />
+
+          <div className="absolute top-28 right-[8%] left-[8%] hidden items-center sm:flex">
+            <div className="h-px flex-1 bg-gradient-to-r from-transparent via-primary/20 to-primary/35" />
+            <span className="mx-3 flex size-9 -rotate-6 items-center justify-center rounded-full border border-primary/15 bg-white/70 text-primary shadow-sm">
+              <Plane className="size-4" />
+            </span>
+            <div className="h-px flex-1 bg-gradient-to-r from-primary/35 via-primary/20 to-transparent" />
+          </div>
+
+          <div className="absolute bottom-0 left-[3%] hidden h-40 w-52 items-end gap-1 opacity-25 md:flex">
+            <span className="h-14 w-12 rounded-t bg-primary/25" />
+            <span className="h-24 w-9 rounded-t-sm bg-primary/25" />
+            <span className="h-32 w-2 bg-primary/30 [clip-path:polygon(42%_0,58%_0,100%_100%,0_100%)]" />
+            <span className="h-20 w-12 rounded-t bg-primary/25" />
+            <span className="h-10 w-16 rounded-t bg-primary/20" />
+          </div>
+
+          <div className="absolute right-[3%] bottom-0 hidden h-36 w-56 items-end justify-end gap-2 opacity-25 md:flex">
+            <span className="mb-5 size-20 rounded-full border-[7px] border-primary/25" />
+            <span className="h-20 w-9 rounded-t-full bg-primary/25" />
+            <span className="h-28 w-14 rounded-t bg-primary/25" />
+            <span className="h-16 w-12 rounded-t-sm bg-primary/20" />
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+
+        <Container className="relative">
+          <div className="mx-auto max-w-4xl text-center">
+            <p className="mb-4 text-sm font-semibold tracking-wide text-primary uppercase">
+              Pack with confidence
+            </p>
+            <h1 className="text-4xl font-semibold tracking-[-0.035em] text-navy sm:text-5xl lg:text-6xl">
+              Check your trip
+            </h1>
+            <p className="mx-auto mt-4 max-w-2xl text-lg leading-8 text-muted-foreground sm:text-xl">
+              Add your route and the items you plan to pack.
+            </p>
+          </div>
+
+          <div className="mx-auto mt-10 max-w-5xl sm:mt-12">
+            <TripCheckerForm />
+          </div>
+
+          <div className="mx-auto mt-8 max-w-7xl sm:mt-10">
+            <div className="grid items-start gap-5 xl:grid-cols-[minmax(0,1.7fr)_minmax(17rem,0.85fr)_minmax(17rem,0.85fr)]">
+              <PackingCheckCard />
+              <WarningSummaryCard />
+              <div className="grid gap-5">
+                <TripInsightsCard />
+                <OfficialSourcesCard />
+              </div>
+            </div>
+          </div>
+        </Container>
+      </section>
+      <WhatToReviewSection />
+      <SavedTripPreviewSection />
+      <WhyTravelersSection />
+    </main>
   );
 }
